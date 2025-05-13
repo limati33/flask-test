@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Добавить отзыв{% endblock %}
+{% block content %}
+<form method="post">
+    <label for="nickname">Ваш ник (по умолчанию Аноним):</label><br>
+    <input type="text" name="nickname" placeholder="Введите ваш ник (или оставьте пустым)" value=""><br><br>
+
+    <textarea name="content" rows="5" cols="50" placeholder="Напишите ваш отзыв"></textarea><br>
+    <button type="submit">Отправить</button>
+</form>
+{% endblock %}

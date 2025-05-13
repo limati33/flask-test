@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Добавить объявление{% endblock %}
+
+{% block content %}
+<h2>Добавить объявление</h2>
+<form method="POST" enctype="multipart/form-data" class="announcement-form">
+    <label for="title">Название объявления:</label>
+    <input type="text" name="title" id="title" required><br><br>
+
+    <label for="content">Текст объявления:</label>
+    <textarea name="content" id="content" rows="4" required></textarea><br><br>
+
+    <label for="image">Изображение:</label>
+    <input type="file" name="image" id="image" accept="image/*"><br><br>
+
+    <button type="submit">Добавить</button>
+</form>
+
+{% endblock %}

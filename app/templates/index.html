@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Объявления{% endblock %}
+
+{% block content %}
+<h2>Объявления</h2>
+<ul class="announcements-list">
+    {% for announcement in announcements %}
+        <li>
+            <span class="announcement-date">{{ announcement['timestamp'] }}</span>
+            <h3 class="announcement-title">{{ announcement['title'] }}</h3>  <!-- Название объявления -->
+            <p class="announcement-text">{{ announcement['content'] }}</p>
+            {% if announcement['image_path'] %}
+                <img src="{{ url_for('static', filename='images/' + announcement['image_path']) }}" class="announcement-img" alt="Image" />
+            {% endif %}
+            {% if session.get('admin_logged_in') %}
+                <!-- Форма для удаления с методом POST -->
+                <form action="{{ url_for('main.delete_announcement', announcement_id=announcement['id']) }}" method="POST" style="display: inline;">
+                    <button type="submit" class="delete-button" onclick="return confirm('Вы уверены, что хотите удалить это объявление?');">Удалить</button>
+                </form>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('main.reviews') }}">Посмотреть отзывы</a>
+{% endblock %}

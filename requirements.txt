@@ -1,0 +1,4 @@
+Flask
+gunicorn
+pywebpush
+pysqlite3-binary
