@@ -42,7 +42,7 @@ def add():
 def reviews():
     if not session.get('admin_logged_in'):
         flash("Только администратор может просматривать отзывы.")
-        return redirect(url_for('main.admin_login'))
+        return redirect(url_for('main.add_announcement'))
 
     conn = get_db_connection()
     reviews = conn.execute('SELECT * FROM reviews ORDER BY timestamp DESC').fetchall()
